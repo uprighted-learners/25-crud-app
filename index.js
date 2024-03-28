@@ -49,10 +49,48 @@ app.get('/groceries/:id', (req, res) => {
 });
 
 // POST - /groceries - create a new grocery item
+app.post('/groceries', (req, res) => {
+    try {
+        const newGrocery = req.body;
+        groceries.push(newGrocery);
+        res.status(201).json(newGrocery);
+    } catch (error) {
+        console.error(error);
+    }
+});
 
 // PUT - /groceries/:id - update a grocery item by id
+app.put('/groceries/:id', (req, res) => {
+    try {
+        const id = req.params.id;
+        const updatedGrocery = req.body;
+        const index = groceries.findIndex(item => item.id === parseInt(id));
+        if (index === -1) {
+            res.status(404).json({ message: 'Grocery item not found' });
+        } else {
+            groceries[index] = updatedGrocery;
+            res.json(updatedGrocery);
+        }
+    } catch (error) {
+        console.error(error);
+    }
+});
 
 // DELETE - /groceries/:id - delete a grocery item by id
+app.delete('/groceries/:id', (req, res) => {
+    try {
+        const id = req.params.id;
+        const index = groceries.findIndex(item => item.id === parseInt(id));
+        if (index === -1) {
+            res.status(404).json({ message: 'Grocery item not found' });
+        } else {
+            groceries.splice(index, 1);
+            res.status(204).end();
+        }
+    } catch (error) {
+        console.error(error);
+    }
+});
 
 // start the server
 app.listen(PORT, () => {
