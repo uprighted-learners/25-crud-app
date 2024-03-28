@@ -1,0 +1,18 @@
+{
+  "name": "Alex",
+  "jobs": [
+    {
+      "title": "Software Engineer",
+      "company": "Google"
+    },
+    {
+      "title": "Software Engineer",
+      "company": "Facebook"
+    }
+  ],
+  "awards": {
+    "1": "Google Scholarship",
+    "2": "Facebook Scholarship",
+    "3": "Facebook Scholarship"
+  }
+}
