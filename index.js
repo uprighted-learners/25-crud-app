@@ -11,7 +11,10 @@ app.use(express.static('public'));
 // Simulated database using an array
 let groceryList = [
     { id: 1, item: 'Milk', quantity: 1 },
-    { id: 2, item: 'Bread', quantity: 2 }
+    { id: 2, item: 'Bread', quantity: 2 },
+    { id: 3, item: 'Eggs', quantity: 3 },
+    { id: 4, item: 'Cheese', quantity: 4 },
+    { id: 5, item: 'Butter', quantity: 5 }
 ];
 
 // Get all grocery items
